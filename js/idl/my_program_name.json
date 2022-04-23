@@ -1,0 +1,81 @@
+{
+  "version": "0.1.0",
+  "name": "my_program_name",
+  "instructions": [
+    {
+      "name": "InstructionThing",
+      "accounts": [
+        {
+          "name": "writableAccount",
+          "isMut": true,
+          "isSigner": false,
+          "desc": "writable account description"
+        },
+        {
+          "name": "nonWritableAccount",
+          "isMut": false,
+          "isSigner": false,
+          "desc": "non-writable account description"
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false,
+          "desc": "Token program"
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false,
+          "desc": "Rent sysvar"
+        }
+      ],
+      "args": [
+        {
+          "name": "instructionThingArgs",
+          "type": {
+            "defined": "InstructionThingArgs"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 0
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "name": "AccountThingy",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "InstructionThingArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 0,
+      "name": "ErrorName",
+      "msg": "Error message"
+    }
+  ],
+  "metadata": {
+    "origin": "shank",
+    "address": "MY_PROGRAM_ID"
+  }
+}
