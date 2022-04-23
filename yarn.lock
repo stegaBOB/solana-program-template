@@ -1500,9 +1500,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"Template@workspace:.":
+"MY_PROGRAM_NAME@workspace:.":
   version: 0.0.0-use.local
-  resolution: "Template@workspace:."
+  resolution: "MY_PROGRAM_NAME@workspace:."
   dependencies:
     "@metaplex-foundation/solita": ^0.3.1
     "@typescript-eslint/eslint-plugin": ^5.4.0
