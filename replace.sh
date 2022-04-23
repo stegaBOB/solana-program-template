@@ -7,18 +7,19 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 NAME_FILES=(
   "$SCRIPT_DIR"/.solitarc.js
   "$SCRIPT_DIR"/package.json
-  "$SCRIPT_DIR"/Cargo.toml
+  "$SCRIPT_DIR"/program/Cargo.toml
 )
 ID_FILES=(
   "$SCRIPT_DIR"/program/src/lib.rs
 )
 
-print_usage() {
-  printf "Usage: \n-n: Name to replace MY_PROGRAM_NAME with \n-i: Base-58 ID to replace MY_PROGRAM_ID with"
-}
-
 OLD_NAME="MY_PROGRAM_NAME"
 OLD_ID="MY_PROGRAM_ID"
+
+print_usage() {
+  printf "Usage: \n-n: Name to replace %s with \n-i: Base-58 ID to replace %s with", $OLD_NAME, $OLD_ID
+}
+
 
 NEW_NAME=""
 NEW_ID=""
