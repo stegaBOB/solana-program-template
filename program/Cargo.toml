@@ -1,0 +1,28 @@
+[package]
+name = "MY_PROGRAM_NAME"
+version = "0.1.0"
+edition = "2021"
+license = "WTFPL"
+publish = false
+
+[dependencies]
+solana-program = "=1.10.9"
+shank = "0.0.2"
+borsh = "0.9.3"
+thiserror = "~1.0"
+num-derive = "0.3.3"
+num-traits = "~0.2"
+
+
+[features]
+test-bpf = []
+
+[dev-dependencies]
+assert_matches = "1.4.0"
+solana-program-test = "=1.10.9"
+solana-sdk = "=1.10.9"
+solana-validator = "=1.10.9"
+solana-logger = "=1.10.9"
+
+[lib]
+crate-type = ["cdylib", "lib"]

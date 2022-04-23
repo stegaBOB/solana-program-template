@@ -1,0 +1,23 @@
+{
+  "name": "MY_PROGRAM_NAME",
+  "packageManager": "yarn@3.2.0-rc.12",
+  "version": "0.0.0",
+  "description": "Solana BFP Template Repo",
+  "author": "Sammy Harris",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "sdk": "node .solitarc"
+  },
+  "devDependencies": {
+    "@metaplex-foundation/solita": "^0.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "esbuild-runner": "^2.2.1",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "lerna": "^4.0.0",
+    "prettier": "^2.4.1"
+  }
+}
