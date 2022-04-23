@@ -1,4 +1,4 @@
-## Structured Template Solana BFP Program With Shank/Solita SDK Generation!
+# Structured Template Solana BFP Program With Shank/Solita SDK Generation!
 
 ### Environment Setup
 1. Install Rust from https://rustup.rs/
