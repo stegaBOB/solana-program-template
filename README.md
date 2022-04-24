@@ -5,27 +5,31 @@
 2. Install Solana from https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool
 3. Run `yarn install` to install dependencies 
 
-### Build and test for program compiled natively
+### Build the rust program alone
 ```
-$ cargo build
-$ cargo test
-```
-
-### Build and test the program compiled for BPF
-```
-$ cargo build-bpf
-$ cargo test-bpf
+$ yarn build:rust
 ```
 
-### Generate the SDK and rebuild IDL
+### Generate the JS SDK and rebuild IDL only
 ```
 $ yarn sdk
 ```
 
-### Replace default values
-Values that need to be replaced:
-- `MY_PROGRAM_NAME`
-- `MY_PROGRAM_ID`
+### Build the JS SDK only (must be generated first)
+```
+$ yarn build:sdk
+```
 
-Use the `replace.sh` file to easily replace them!
+### Build the program and generate and build the IDL/SDK
+```
+$ yarn build
+```
+
+### Replace default values
+
+Values that need to be replaced:
+- `my_program_name` (and `my-program-id`)
+- `my_program_id`
+
+Use the `rename.sh` file to easily replace all references of the old names and ids with the new ones!
 Use the `-n` flag to specify the new name and the `-i` flag to specify a new ID.

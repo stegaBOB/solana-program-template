@@ -1,8 +1,8 @@
 const path = require('path');
 const programDir = path.join(__dirname, 'program');
 const generatedIdlDir = path.join(__dirname, 'js', 'idl');
-const generatedSDKDir = path.join(__dirname, 'js', 'generated');
-const PROGRAM_NAME = 'MY_PROGRAM_NAME';
+const generatedSDKDir = path.join(__dirname, 'js', 'src', 'generated');
+const PROGRAM_NAME = 'my_program_name';
 const {Solita} = require('@metaplex-foundation/solita');
 const {spawn} = require('child_process');
 

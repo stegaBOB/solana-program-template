@@ -20,10 +20,10 @@ cd "$here"/..
 
 echo "Updating Solana version to $solana_ver in $PWD"
 
-if ! git diff --quiet && [[ -z $DIRTY_OK ]]; then
-  echo "Error: dirty tree"
-  exit 1
-fi
+#if ! git diff --quiet && [[ -z $DIRTY_OK ]]; then
+#  echo "Error: dirty tree"
+#  exit 1
+#fi
 
 declare tomls=()
 while IFS='' read -r line; do tomls+=("$line"); done < <(find . -name Cargo.toml)

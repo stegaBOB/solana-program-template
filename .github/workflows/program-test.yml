@@ -1,0 +1,52 @@
+name: Program Test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  SOLANA_VERSION: 1.10.9
+  RUST_TOOLCHAIN: stable
+
+jobs:
+  build-and-test-program:
+    runs-on: ubuntu-latest
+    env:
+      cache_id: program-test
+
+    steps:
+      # Setup Deps
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/install-linux-build-deps
+      - uses: ./.github/actions/install-solana
+        with:
+          solana_version: ${{ env.SOLANA_VERSION }}
+      - uses: ./.github/actions/install-rust
+        with:
+          toolchain: ${{ env.RUST_TOOLCHAIN }}
+
+      # Restore Cache from previous build/test
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            ./rust/target
+          key:
+            ${{ env.cache_id }}-${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}-${{
+            env.RUSTC_HASH }}
+
+      # Run test
+      - name: test-program
+        id: run_test
+        working-directory: ./program
+        run: |
+          cargo +${{ env.RUST_TOOLCHAIN }} test -- --nocapture --test-threads 1
+          cargo +${{ env.RUST_TOOLCHAIN }} test-bpf --version
+          cargo +${{ env.RUST_TOOLCHAIN }} test-bpf --bpf-out-dir ../../target/deploy/ -- --nocapture --test-threads 1
