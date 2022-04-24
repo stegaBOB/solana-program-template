@@ -11,11 +11,11 @@
     "build:rust": "(cd program; cargo build-bpf)",
     "build:sdk": "yarn workspace my-program-name build",
     "build:docs": "yarn workspace my-program-name build:docs",
-    "build": "yarn build:rust && yarn sdk && yarn format:fix && yarn build:sdk && yarn build:docs",
+    "build": "yarn build:rust && yarn sdk && yarn fix:format && yarn build:sdk && yarn build:docs",
     "update-sol-deps": "./scripts/update-solana-dependencies.sh",
     "rename": "./scripts/rename.sh",
     "amman": "./scripts/amman.sh",
-    "format:fix": "(cd program; cargo fmt) && yarn workspace my-program-name fix:prettier",
+    "fix:format": "(cd program; cargo fmt) && yarn workspace my-program-name fix:prettier",
     "lint": "(cd program; cargo clippy) && yarn workspace my-program-name lint"
   },
   "workspaces": [

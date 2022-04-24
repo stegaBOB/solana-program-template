@@ -37,13 +37,15 @@ const InstructionThingStruct = new beet.BeetArgsStruct<
 /**
  * Accounts required by the _InstructionThing_ instruction
  *
- * @property [_writable_] writableAccount writable account description
- * @property [] nonWritableAccount non-writable account description
+ * @property [_writable_, **signer**] signedWritableAccount signed, writable account description
+ * @property [_writable_] writableAccount writable, non signed account description
+ * @property [] nonWritableAccount non signed, non writable account description
  * @category Instructions
  * @category InstructionThing
  * @category generated
  */
 export type InstructionThingInstructionAccounts = {
+  signedWritableAccount: web3.PublicKey;
   writableAccount: web3.PublicKey;
   nonWritableAccount: web3.PublicKey;
 };
@@ -64,13 +66,18 @@ export function createInstructionThingInstruction(
   accounts: InstructionThingInstructionAccounts,
   args: InstructionThingInstructionArgs,
 ) {
-  const { writableAccount, nonWritableAccount } = accounts;
+  const { signedWritableAccount, writableAccount, nonWritableAccount } = accounts;
 
   const [data] = InstructionThingStruct.serialize({
     instructionDiscriminator: instructionThingInstructionDiscriminator,
     ...args,
   });
   const keys: web3.AccountMeta[] = [
+    {
+      pubkey: signedWritableAccount,
+      isWritable: true,
+      isSigner: true,
+    },
     {
       pubkey: writableAccount,
       isWritable: true,
