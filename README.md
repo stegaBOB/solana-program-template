@@ -21,7 +21,7 @@ $ yarn sdk
 $ yarn build:sdk
 ```
 
-### Build the program and generate and build the IDL/SDK
+### Build the program and generate/build the IDL/SDK/docs
 ```
 $ yarn build
 ```
