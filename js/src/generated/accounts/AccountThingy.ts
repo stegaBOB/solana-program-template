@@ -5,15 +5,15 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as web3 from '@solana/web3.js'
-import * as beet from '@metaplex-foundation/beet'
+import * as web3 from '@solana/web3.js';
+import * as beet from '@metaplex-foundation/beet';
 
 /**
  * Arguments used to create {@link AccountThingy}
  * @category Accounts
  * @category generated
  */
-export type AccountThingyArgs = {}
+export type AccountThingyArgs = {};
 /**
  * Holds the data for the {@link AccountThingy} Account and provides de/serialization
  * functionality for that data
@@ -28,7 +28,7 @@ export class AccountThingy implements AccountThingyArgs {
    * Creates a {@link AccountThingy} instance from the provided args.
    */
   static fromArgs(args: AccountThingyArgs) {
-    return new AccountThingy()
+    return new AccountThingy();
   }
 
   /**
@@ -37,9 +37,9 @@ export class AccountThingy implements AccountThingyArgs {
    */
   static fromAccountInfo(
     accountInfo: web3.AccountInfo<Buffer>,
-    offset = 0
+    offset = 0,
   ): [AccountThingy, number] {
-    return AccountThingy.deserialize(accountInfo.data, offset)
+    return AccountThingy.deserialize(accountInfo.data, offset);
   }
 
   /**
@@ -50,13 +50,13 @@ export class AccountThingy implements AccountThingyArgs {
    */
   static async fromAccountAddress(
     connection: web3.Connection,
-    address: web3.PublicKey
+    address: web3.PublicKey,
   ): Promise<AccountThingy> {
-    const accountInfo = await connection.getAccountInfo(address)
+    const accountInfo = await connection.getAccountInfo(address);
     if (accountInfo == null) {
-      throw new Error(`Unable to find AccountThingy account at ${address}`)
+      throw new Error(`Unable to find AccountThingy account at ${address}`);
     }
-    return AccountThingy.fromAccountInfo(accountInfo, 0)[0]
+    return AccountThingy.fromAccountInfo(accountInfo, 0)[0];
   }
 
   /**
@@ -64,7 +64,7 @@ export class AccountThingy implements AccountThingyArgs {
    * @returns a tuple of the account data and the offset up to which the buffer was read to obtain it.
    */
   static deserialize(buf: Buffer, offset = 0): [AccountThingy, number] {
-    return accountThingyBeet.deserialize(buf, offset)
+    return accountThingyBeet.deserialize(buf, offset);
   }
 
   /**
@@ -72,7 +72,7 @@ export class AccountThingy implements AccountThingyArgs {
    * @returns a tuple of the created Buffer and the offset up to which the buffer was written to store it.
    */
   serialize(): [Buffer, number] {
-    return accountThingyBeet.serialize(this)
+    return accountThingyBeet.serialize(this);
   }
 
   /**
@@ -80,7 +80,7 @@ export class AccountThingy implements AccountThingyArgs {
    * {@link AccountThingy}
    */
   static get byteSize() {
-    return accountThingyBeet.byteSize
+    return accountThingyBeet.byteSize;
   }
 
   /**
@@ -91,12 +91,9 @@ export class AccountThingy implements AccountThingyArgs {
    */
   static async getMinimumBalanceForRentExemption(
     connection: web3.Connection,
-    commitment?: web3.Commitment
+    commitment?: web3.Commitment,
   ): Promise<number> {
-    return connection.getMinimumBalanceForRentExemption(
-      AccountThingy.byteSize,
-      commitment
-    )
+    return connection.getMinimumBalanceForRentExemption(AccountThingy.byteSize, commitment);
   }
 
   /**
@@ -104,7 +101,7 @@ export class AccountThingy implements AccountThingyArgs {
    * hold {@link AccountThingy} data.
    */
   static hasCorrectByteSize(buf: Buffer, offset = 0) {
-    return buf.byteLength - offset === AccountThingy.byteSize
+    return buf.byteLength - offset === AccountThingy.byteSize;
   }
 
   /**
@@ -112,7 +109,7 @@ export class AccountThingy implements AccountThingyArgs {
    * and can be used to convert to JSON and/or logging
    */
   pretty() {
-    return {}
+    return {};
   }
 }
 
@@ -123,5 +120,5 @@ export class AccountThingy implements AccountThingyArgs {
 export const accountThingyBeet = new beet.BeetStruct<AccountThingy>(
   [],
   AccountThingy.fromArgs,
-  'AccountThingy'
-)
+  'AccountThingy',
+);

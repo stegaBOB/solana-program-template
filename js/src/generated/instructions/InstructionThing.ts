@@ -5,13 +5,10 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as splToken from '@solana/spl-token'
-import * as beet from '@metaplex-foundation/beet'
-import * as web3 from '@solana/web3.js'
-import {
-  InstructionThingArgs,
-  instructionThingArgsBeet,
-} from '../types/InstructionThingArgs'
+import * as splToken from '@solana/spl-token';
+import * as beet from '@metaplex-foundation/beet';
+import * as web3 from '@solana/web3.js';
+import { InstructionThingArgs, instructionThingArgsBeet } from '../types/InstructionThingArgs';
 
 /**
  * @category Instructions
@@ -19,8 +16,8 @@ import {
  * @category generated
  */
 export type InstructionThingInstructionArgs = {
-  instructionThingArgs: InstructionThingArgs
-}
+  instructionThingArgs: InstructionThingArgs;
+};
 /**
  * @category Instructions
  * @category InstructionThing
@@ -28,15 +25,15 @@ export type InstructionThingInstructionArgs = {
  */
 const InstructionThingStruct = new beet.BeetArgsStruct<
   InstructionThingInstructionArgs & {
-    instructionDiscriminator: number
+    instructionDiscriminator: number;
   }
 >(
   [
     ['instructionDiscriminator', beet.u8],
     ['instructionThingArgs', instructionThingArgsBeet],
   ],
-  'InstructionThingInstructionArgs'
-)
+  'InstructionThingInstructionArgs',
+);
 /**
  * Accounts required by the _InstructionThing_ instruction
  *
@@ -47,11 +44,11 @@ const InstructionThingStruct = new beet.BeetArgsStruct<
  * @category generated
  */
 export type InstructionThingInstructionAccounts = {
-  writableAccount: web3.PublicKey
-  nonWritableAccount: web3.PublicKey
-}
+  writableAccount: web3.PublicKey;
+  nonWritableAccount: web3.PublicKey;
+};
 
-const instructionThingInstructionDiscriminator = 0
+const instructionThingInstructionDiscriminator = 0;
 
 /**
  * Creates a _InstructionThing_ instruction.
@@ -65,14 +62,14 @@ const instructionThingInstructionDiscriminator = 0
  */
 export function createInstructionThingInstruction(
   accounts: InstructionThingInstructionAccounts,
-  args: InstructionThingInstructionArgs
+  args: InstructionThingInstructionArgs,
 ) {
-  const { writableAccount, nonWritableAccount } = accounts
+  const { writableAccount, nonWritableAccount } = accounts;
 
   const [data] = InstructionThingStruct.serialize({
     instructionDiscriminator: instructionThingInstructionDiscriminator,
     ...args,
-  })
+  });
   const keys: web3.AccountMeta[] = [
     {
       pubkey: writableAccount,
@@ -94,14 +91,12 @@ export function createInstructionThingInstruction(
       isWritable: false,
       isSigner: false,
     },
-  ]
+  ];
 
   const ix = new web3.TransactionInstruction({
-    programId: new web3.PublicKey(
-      'MyProgram1111111111111111111111111111111111'
-    ),
+    programId: new web3.PublicKey('MyProgram1111111111111111111111111111111111'),
     keys,
     data,
-  })
-  return ix
+  });
+  return ix;
 }
