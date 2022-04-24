@@ -1,4 +1,5 @@
-# Boilerplate Solana BFP With SDK Generation!
+# The Best Solana Program Template 
+## Includes Shank/Solita SDK generation, Amman support, scripts, .github configuration, and more!
 
 ### Environment Setup
 1. Install Rust from https://rustup.rs/
