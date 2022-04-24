@@ -1,2 +1,2 @@
-module.exports = require('../../.prettierrc');
+module.exports = require('../.prettierrc');
 
