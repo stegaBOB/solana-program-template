@@ -4,33 +4,56 @@
 ### Environment Setup
 1. Install Rust from https://rustup.rs/
 2. Install Solana from https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool
-3. Run `yarn install` to install dependencies 
+3. Run `yarn install` to install dependencies
+
+---
+
+### Replace default values
+```
+$ yarn rename -n cool_program_name -i NewProgramKeypair111111111111111111111111111
+```
+
+Values that will be replaced:
+- `my_program_name` (and `my-program-name`)
+- `MyProgram1111111111111111111111111111111111`
+
+---
 
 ### Build the rust program alone
 ```
 $ yarn build:rust
 ```
 
+---
+
 ### Generate the JS SDK and rebuild IDL only
 ```
 $ yarn sdk
 ```
+
+---
 
 ### Build the JS SDK only (must be generated first)
 ```
 $ yarn build:sdk
 ```
 
+---
+
 ### Build the program and generate/build the IDL/SDK/docs
 ```
 $ yarn build
 ```
 
-### Replace default values
+---
 
-Values that need to be replaced:
-- `my_program_name` (and `my-program-id`)
-- `my_program_id`
+### Start Amman and run the test script
+Run the following command in a separate shell
+```
+$ amman start
+```
 
-Use the `rename.sh` file to easily replace all references of the old names and ids with the new ones!
-Use the `-n` flag to specify the new name and the `-i` flag to specify a new ID.
+Then, run the Amman script
+```
+$ yarn amman
+```

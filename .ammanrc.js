@@ -26,6 +26,7 @@ const programs = [
 const validator = {
     programs,
     verifyFees: false,
+    limitLedgerSize: 10000000
 };
 
 module.exports = {
