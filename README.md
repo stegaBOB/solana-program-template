@@ -26,9 +26,9 @@ $ yarn build:rust
 
 ---
 
-### Generate the JS SDK and rebuild IDL only
+### Generate the JS SDK and rebuild IDL only (using shank and solita)
 ```
-$ yarn sdk
+$ yarn solita
 ```
 
 ---

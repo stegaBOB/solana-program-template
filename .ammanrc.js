@@ -1,10 +1,10 @@
 // @ts-check
 'use strict';
 const path = require('path');
+const accountProviders = require('./js/dist/generated/accounts');
 
 const localDeployDir = path.join(__dirname, 'program', 'target', 'deploy');
-
-const MY_PROGRAM_ID = 'MyProgram1111111111111111111111111111111111';
+const MY_PROGRAM_ID = require("./js/idl/my_program_name.json").metadata.address;
 
 function localDeployPath(programName) {
     return path.join(localDeployDir, `${programName}.so`);
@@ -26,9 +26,12 @@ const programs = [
 const validator = {
     programs,
     verifyFees: false,
-    limitLedgerSize: 10000000
+    limitLedgerSize: 10000000,
 };
 
 module.exports = {
     validator,
+    relay: {
+        accountProviders,
+    },
 };

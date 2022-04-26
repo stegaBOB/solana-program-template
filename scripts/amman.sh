@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 ## Example amman script
+
 echo -e "\x1b[1;33mMAKE SURE YOU START AMMAN WITH \x1b[0;4mammman start\x1b[0;1;33m BEFORE RUNNING THIS COMMAND\x1b[0m"
-sleep 1
+sleep 1.5
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 ROOT_DIR=$(dirname "$SCRIPT_DIR")

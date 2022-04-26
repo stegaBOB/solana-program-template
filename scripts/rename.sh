@@ -5,25 +5,22 @@
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 ROOT_DIR=$(dirname "$SCRIPT_DIR")
 
+ID_FILES=(
+  "$ROOT_DIR"/program/src/lib.rs
+)
 NAME_FILES=(
   "$ROOT_DIR"/.solitarc.js
   "$ROOT_DIR"/.ammanrc.js
   "$ROOT_DIR"/program/Cargo.toml
   "$ROOT_DIR"/program/Cargo.lock
   "$ROOT_DIR"/yarn.lock
+  "$ROOT_DIR"/js/idl/"$OLD_NAME".json
 )
 NAME_FILES_TS=(
   "$ROOT_DIR"/js/package.json
   "$ROOT_DIR"/package.json
   "$ROOT_DIR"/js/typedoc.json
   "$ROOT_DIR"/yarn.lock
-)
-ID_FILES=(
-  "$ROOT_DIR"/program/src/lib.rs
-  "$ROOT_DIR"/.ammanrc.js
-)
-RENAME_DIRS=(
-  "$ROOT_DIR"/js/src
 )
 
 OLD_NAME="my_program_name"
@@ -71,21 +68,10 @@ function replace() {
   fi
 }
 
-function rename() {
-  if [ "$2" != "" ]; then
-    local old=$1
-    local new=$2
-    shift
-    shift
-    local arr=("$@")
-    for dir in "${arr[@]}"; do
-      mv "${dir}"/"$old".ts "${dir}"/"$new".ts
-    done
-    echo "Renamed the default files!"
-  fi
-}
-
 replace "$OLD_ID" "$NEW_ID" "${ID_FILES[@]}"
 replace "$OLD_NAME" "$NEW_NAME" "${NAME_FILES[@]}"
 replace "$OLD_NAME_TS" "$NEW_NAME_TS" "${NAME_FILES_TS[@]}"
-rename "$OLD_NAME_TS" "$NEW_NAME_TS" "${RENAME_DIRS[@]}"
+
+mv "$ROOT_DIR"/js/src/"$OLD_NAME_TS".ts "$ROOT_DIR"/js/src/"$NEW_NAME_TS".ts
+mv "$ROOT_DIR"/js/idl/"$OLD_NAME".json "$ROOT_DIR"/js/idl/"$NEW_NAME".json
+echo "Renamed the default files!"

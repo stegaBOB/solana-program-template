@@ -950,18 +950,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metaplex-foundation/rustbin@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@metaplex-foundation/rustbin@npm:0.1.0"
-  dependencies:
-    debug: ^4.3.3
-    semver: ^7.3.7
-    text-table: ^0.2.0
-    toml: ^3.0.0
-  checksum: 4485a72474ce4a0ab92df7468c657c57947cd91f6aeec90307274530d94b7ab889eefda842acbb5e28d7c532eeac8296a55f36b648b623d1ad61177aac176121
-  languageName: node
-  linkType: hard
-
 "@metaplex-foundation/rustbin@npm:^0.3.0":
   version: 0.3.1
   resolution: "@metaplex-foundation/rustbin@npm:0.3.1"
@@ -971,26 +959,6 @@ __metadata:
     text-table: ^0.2.0
     toml: ^3.0.0
   checksum: 042eb8cb729e886477efa885693dadcf31722c071f8adc5a49509483d846d4d359999b9f2beff9406f4dc9fa0a0f0bdb37be4b0c68426864f9f9f60b456cc74b
-  languageName: node
-  linkType: hard
-
-"@metaplex-foundation/solita@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@metaplex-foundation/solita@npm:0.3.1"
-  dependencies:
-    "@metaplex-foundation/beet": ^0.1.0
-    "@metaplex-foundation/beet-solana": ^0.1.1
-    "@metaplex-foundation/rustbin": ^0.1.0
-    "@solana/web3.js": ^1.36.0
-    camelcase: ^6.2.1
-    debug: ^4.3.3
-    js-sha256: ^0.9.0
-    prettier: ^2.5.1
-    snake-case: ^3.0.4
-    spok: ^1.4.3
-  bin:
-    solita: dist/src/cli/solita.js
-  checksum: e9055d4ec013580096aa21cbf51cb4128e57ef1f57439321f5a4d11a680b029f9199b807ed8902300f3c82036e6aca1b8fa463ed1a56c2a1ce1f2fc56a862996
   languageName: node
   linkType: hard
 
@@ -1011,6 +979,26 @@ __metadata:
   bin:
     solita: dist/src/cli/solita.js
   checksum: 2e6a6b86d7bb9b5a3bd773b0052dad7117192a35c7c8e9c81979158d95182ba83c5def3621aeaaf0fd6c9cd93ba5297131b953bf1f68a1fffae1ef0bd572c2ab
+  languageName: node
+  linkType: hard
+
+"@metaplex-foundation/solita@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "@metaplex-foundation/solita@npm:0.5.2"
+  dependencies:
+    "@metaplex-foundation/beet": ^0.1.0
+    "@metaplex-foundation/beet-solana": ^0.1.1
+    "@metaplex-foundation/rustbin": ^0.3.0
+    "@solana/web3.js": ^1.36.0
+    camelcase: ^6.2.1
+    debug: ^4.3.3
+    js-sha256: ^0.9.0
+    prettier: ^2.5.1
+    snake-case: ^3.0.4
+    spok: ^1.4.3
+  bin:
+    solita: dist/src/cli/solita.js
+  checksum: 0d6d7096f01eca4f9bfdb3342c544876a760410d2abe4ae3c2c7a72ea7cb8d4d44d3d581c102ef1bc97007e2b615539da9c20f92f05e56b594725cbaf040fb5b
   languageName: node
   linkType: hard
 
@@ -5101,7 +5089,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-program-name-workspace@workspace:."
   dependencies:
-    "@metaplex-foundation/solita": ^0.3.1
+    "@metaplex-foundation/solita": ^0.5.2
     "@typescript-eslint/eslint-plugin": ^5.4.0
     "@typescript-eslint/parser": ^5.4.0
     esbuild-runner: ^2.2.1

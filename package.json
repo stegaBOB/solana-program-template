@@ -7,11 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "sdk": "node .solitarc",
     "build:rust": "(cd program; cargo build-bpf)",
     "build:sdk": "yarn workspace my-program-name build",
     "build:docs": "yarn workspace my-program-name build:docs",
-    "build": "yarn build:rust && yarn sdk && yarn fix:format && yarn build:sdk && yarn build:docs",
+    "build": "yarn build:rust && yarn solita && yarn fix:format && yarn build:sdk && yarn build:docs",
     "update-sol-deps": "./scripts/update-solana-dependencies.sh",
     "rename": "./scripts/rename.sh",
     "amman": "./scripts/amman.sh",
@@ -22,7 +21,7 @@
     "js"
   ],
   "devDependencies": {
-    "@metaplex-foundation/solita": "^0.3.1",
+    "@metaplex-foundation/solita": "^0.5.2",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "esbuild-runner": "^2.2.1",
