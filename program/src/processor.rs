@@ -1,3 +1,5 @@
+use crate::instruction::InstructionThingy;
+use borsh::BorshDeserialize;
 use solana_program::{account_info::AccountInfo, entrypoint::ProgramResult, pubkey::Pubkey};
 
 pub struct Processor;
@@ -7,6 +9,12 @@ impl Processor {
         accounts: &[AccountInfo],
         instruction_data: &[u8],
     ) -> ProgramResult {
-        Ok(())
+        let instruction: InstructionThingy = InstructionThingy::try_from_slice(instruction_data)?;
+        match instruction {
+            InstructionThingy::InstructionThing(args) => {
+                // handle instruction
+                Ok(())
+            }
+        }
     }
 }
