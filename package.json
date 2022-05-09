@@ -22,7 +22,6 @@
   ],
   "devDependencies": {
     "@metaplex-foundation/solita": "^0.7.0",
-    "@metaplex-foundation/amman"
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "esbuild-runner": "^2.2.1",
