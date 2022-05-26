@@ -23,7 +23,7 @@ export type InstructionThingInstructionArgs = {
  * @category InstructionThing
  * @category generated
  */
-const InstructionThingStruct = new beet.BeetArgsStruct<
+export const InstructionThingStruct = new beet.BeetArgsStruct<
   InstructionThingInstructionArgs & {
     instructionDiscriminator: number;
   }
@@ -50,7 +50,7 @@ export type InstructionThingInstructionAccounts = {
   nonWritableAccount: web3.PublicKey;
 };
 
-const instructionThingInstructionDiscriminator = 0;
+export const instructionThingInstructionDiscriminator = 0;
 
 /**
  * Creates a _InstructionThing_ instruction.
