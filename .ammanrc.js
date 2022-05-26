@@ -1,10 +1,10 @@
 // @ts-check
 'use strict';
 const path = require('path');
-const accountProviders = require('./js/dist/generated/accounts');
+const accountProviders = require('./packages/sdk/dist/generated/accounts');
 
 const localDeployDir = path.join(__dirname, 'program', 'target', 'deploy');
-const MY_PROGRAM_ID = require("./js/idl/my_program_name.json").metadata.address;
+const MY_PROGRAM_ID = require("./packages/sdk/idl/my_program_name.json").metadata.address;
 
 function localDeployPath(programName) {
     return path.join(localDeployDir, `${programName}.so`);
@@ -27,7 +27,7 @@ const accounts = [
     },
     {
         label: 'Random other account',
-        programId:'4VLgNs1jXgdciSidxcaLKfrR9WjATkj6vmTm5yCwNwui',
+        accountId:'4VLgNs1jXgdciSidxcaLKfrR9WjATkj6vmTm5yCwNwui',
         // by default executable is false
         // providing a cluster here will override the accountsCluster field
         cluster: 'https://metaplex.devnet.rpcpool.com'
@@ -37,7 +37,7 @@ const accounts = [
 const validator = {
     programs,
     // The accounts below is commented out. Uncomment if you want to pull remote accounts. Check Amman docs for more info
-    // accounts,
+    accounts,
     verifyFees: false,
     limitLedgerSize: 10000000,
 };

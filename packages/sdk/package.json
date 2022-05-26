@@ -6,13 +6,13 @@
   "types": "dist/src/my-program-name.d.ts",
   "scripts": {
     "check:publish-ready": "yarn build && yarn test",
-    "postversion": "git add package.json && git commit -m \"chore: update $npm_package_name to v$npm_package_version\" && git tag $npm_package_name@$npm_package_version",
+    "postversion": "git add package.json && git commit -m \\\"chore: update $npm_package_name to v$npm_package_version\\\" && git tag $npm_package_name@$npm_package_version",
     "build:docs": "typedoc",
     "build": "rimraf dist && tsc -p tsconfig.json",
     "lint": "eslint \"{src,test}/**/*.ts\" --format stylish",
     "fix:lint": "yarn lint --fix",
     "prettier": "prettier \"{src,test}/**/*.ts\" --check",
-    "fix:prettier": "prettier --write src/",
+    "fix:prettier": "prettier --write src",
     "fix": "yarn fix:lint && yarn fix:prettier"
   },
   "files": [

@@ -5,33 +5,15 @@
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 ROOT_DIR=$(dirname "$SCRIPT_DIR")
 
-ID_FILES=(
-  "$ROOT_DIR"/program/src/lib.rs
-)
-NAME_FILES=(
-  "$ROOT_DIR"/.solitarc.js
-  "$ROOT_DIR"/.ammanrc.js
-  "$ROOT_DIR"/program/Cargo.toml
-  "$ROOT_DIR"/program/Cargo.lock
-  "$ROOT_DIR"/yarn.lock
-  "$ROOT_DIR"/js/idl/"$OLD_NAME".json
-)
-NAME_FILES_TS=(
-  "$ROOT_DIR"/js/package.json
-  "$ROOT_DIR"/package.json
-  "$ROOT_DIR"/js/typedoc.json
-  "$ROOT_DIR"/yarn.lock
-)
-
 OLD_NAME="my_program_name"
 OLD_ID="MyProgram1111111111111111111111111111111111"
-
-NEW_NAME=""
-NEW_ID=""
 
 print_usage() {
   printf "Usage: \n-n: Name to replace %s \n-i: Base-58 ID to replace %s \n" $OLD_NAME $OLD_ID
 }
+
+NEW_NAME=""
+NEW_ID=""
 
 while getopts 'n:i:r:a:h' flag; do
   case "${flag}" in
@@ -45,6 +27,30 @@ while getopts 'n:i:r:a:h' flag; do
     ;;
   esac
 done
+
+
+
+ID_FILES=(
+  "$ROOT_DIR"/program/src/lib.rs
+)
+
+NAME_FILES=(
+  "$ROOT_DIR"/.solitarc.js
+  "$ROOT_DIR"/.ammanrc.js
+  "$ROOT_DIR"/yarn.lock
+  "$ROOT_DIR"/packages/sdk/idl/"$OLD_NAME".json
+)
+
+NAME_FILES_TS=(
+  "$ROOT_DIR"/program/Cargo.toml
+  "$ROOT_DIR"/program/Cargo.lock
+  "$ROOT_DIR"/packages/sdk/package.json
+  "$ROOT_DIR"/package.json
+  "$ROOT_DIR"/packages/sdk/typedoc.json
+  "$ROOT_DIR"/yarn.lock
+)
+
+
 
 OLD_NAME_TS=$(echo "$OLD_NAME" | tr _ -)
 NEW_NAME_TS=$(echo "$NEW_NAME" | tr _ -)
@@ -72,6 +78,6 @@ replace "$OLD_ID" "$NEW_ID" "${ID_FILES[@]}"
 replace "$OLD_NAME" "$NEW_NAME" "${NAME_FILES[@]}"
 replace "$OLD_NAME_TS" "$NEW_NAME_TS" "${NAME_FILES_TS[@]}"
 
-mv "$ROOT_DIR"/js/src/"$OLD_NAME_TS".ts "$ROOT_DIR"/js/src/"$NEW_NAME_TS".ts
-mv "$ROOT_DIR"/js/idl/"$OLD_NAME".json "$ROOT_DIR"/js/idl/"$NEW_NAME".json
+mv "$ROOT_DIR"/packages/sdk/src/"$OLD_NAME_TS".ts "$ROOT_DIR"/packages/sdk/src/"$NEW_NAME_TS".ts
+mv "$ROOT_DIR"/packages/sdk/idl/"$OLD_NAME".json "$ROOT_DIR"/packages/sdk/idl/"$NEW_NAME".json
 echo "Renamed the default files!"

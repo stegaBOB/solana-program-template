@@ -973,9 +973,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metaplex-foundation/solita@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "@metaplex-foundation/solita@npm:0.7.0"
+"@metaplex-foundation/solita@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "@metaplex-foundation/solita@npm:0.8.1"
   dependencies:
     "@metaplex-foundation/beet": ^0.2.0
     "@metaplex-foundation/beet-solana": ^0.1.1
@@ -989,7 +989,7 @@ __metadata:
     spok: ^1.4.3
   bin:
     solita: dist/src/cli/solita.js
-  checksum: 16cc9a2ce058217eea6546bff058291f24437c5e021b37c1c59884b6934788cab0f619e2e61e2cd5e7ae5a7897aff5c5343a146c2cd1a90b0ca4d64f58dcff6d
+  checksum: 76892841fdfb66bbb7fbcb2412db868380c3730d5a4048b09e27dc228fee770069472f6e65470b614dcea0f6040e163b41bba915ea6d76a4f336ecf4128cfe89
   languageName: node
   linkType: hard
 
@@ -5087,7 +5087,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-program-name-workspace@workspace:."
   dependencies:
-    "@metaplex-foundation/solita": ^0.7.0
+    "@metaplex-foundation/solita": ^0.8.1
     "@typescript-eslint/eslint-plugin": ^5.4.0
     "@typescript-eslint/parser": ^5.4.0
     esbuild-runner: ^2.2.1
@@ -5099,9 +5099,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"my-program-name@workspace:js":
+"my-program-name@workspace:packages/sdk":
   version: 0.0.0-use.local
-  resolution: "my-program-name@workspace:js"
+  resolution: "my-program-name@workspace:packages/sdk"
   dependencies:
     "@metaplex-foundation/beet": ^0.2.0
     "@metaplex-foundation/beet-solana": ^0.1.1
