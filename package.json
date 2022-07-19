@@ -3,8 +3,8 @@
   "packageManager": "yarn@3.2.0-rc.12",
   "version": "0.0.0",
   "description": "",
-  "author": "Sammy Harris",
-  "license": "MIT",
+  "author": "Sammy Harris <sammy@stegabob.com>",
+  "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "build:rust": "(cd program; cargo build-bpf)",
@@ -21,14 +21,14 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@metaplex-foundation/solita": "^0.8.2",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@metaplex-foundation/amman": "^0.10.0",
+    "@metaplex-foundation/solita": "^0.12.2",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
     "esbuild-runner": "^2.2.1",
-    "eslint": "^8.16.0",
+    "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "lerna": "^4.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.6.2"
   }
 }

@@ -7,6 +7,7 @@
 
 import * as web3 from '@solana/web3.js';
 import * as beet from '@metaplex-foundation/beet';
+import * as beetSolana from '@metaplex-foundation/beet-solana';
 
 /**
  * Arguments used to create {@link AccountThingy}
@@ -57,6 +58,18 @@ export class AccountThingy implements AccountThingyArgs {
       throw new Error(`Unable to find AccountThingy account at ${address}`);
     }
     return AccountThingy.fromAccountInfo(accountInfo, 0)[0];
+  }
+
+  /**
+   * Provides a {@link web3.Connection.getProgramAccounts} config builder,
+   * to fetch accounts matching filters that can be specified via that builder.
+   *
+   * @param programId - the program that owns the accounts we are filtering
+   */
+  static gpaBuilder(
+    programId: web3.PublicKey = new web3.PublicKey('MyProgram1111111111111111111111111111111111'),
+  ) {
+    return beetSolana.GpaBuilder.fromStruct(programId, accountThingyBeet);
   }
 
   /**
@@ -117,7 +130,7 @@ export class AccountThingy implements AccountThingyArgs {
  * @category Accounts
  * @category generated
  */
-export const accountThingyBeet = new beet.BeetStruct<AccountThingy>(
+export const accountThingyBeet = new beet.BeetStruct<AccountThingy, {}>(
   [],
   AccountThingy.fromArgs,
   'AccountThingy',

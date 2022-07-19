@@ -2,11 +2,11 @@
 name = "my-program-name"
 version = "0.1.0"
 edition = "2021"
-license = "MIT"
+license = "Apache-2.0"
 publish = false
 
 [dependencies]
-solana-program = "=1.10.9"
+solana-program = "=1.10.29"
 shank = "0.0.2"
 borsh = "0.9.3"
 thiserror = "~1.0"
@@ -19,10 +19,10 @@ test-bpf = []
 
 [dev-dependencies]
 assert_matches = "1.5.0"
-solana-program-test = "=1.10.9"
-solana-sdk = "=1.10.9"
-solana-validator = "=1.10.9"
-solana-logger = "=1.10.9"
+solana-program-test = "=1.10.29"
+solana-sdk = "=1.10.29"
+solana-validator = "=1.10.29"
+solana-logger = "=1.10.29"
 
 [lib]
 crate-type = ["cdylib", "lib"]

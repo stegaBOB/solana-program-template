@@ -48,6 +48,8 @@ export type InstructionThingInstructionAccounts = {
   signedWritableAccount: web3.PublicKey;
   writableAccount: web3.PublicKey;
   nonWritableAccount: web3.PublicKey;
+  tokenProgram?: web3.PublicKey;
+  rent?: web3.PublicKey;
 };
 
 export const instructionThingInstructionDiscriminator = 0;
@@ -65,43 +67,42 @@ export const instructionThingInstructionDiscriminator = 0;
 export function createInstructionThingInstruction(
   accounts: InstructionThingInstructionAccounts,
   args: InstructionThingInstructionArgs,
+  programId = new web3.PublicKey('MyProgram1111111111111111111111111111111111'),
 ) {
-  const { signedWritableAccount, writableAccount, nonWritableAccount } = accounts;
-
   const [data] = InstructionThingStruct.serialize({
     instructionDiscriminator: instructionThingInstructionDiscriminator,
     ...args,
   });
   const keys: web3.AccountMeta[] = [
     {
-      pubkey: signedWritableAccount,
+      pubkey: accounts.signedWritableAccount,
       isWritable: true,
       isSigner: true,
     },
     {
-      pubkey: writableAccount,
+      pubkey: accounts.writableAccount,
       isWritable: true,
       isSigner: false,
     },
     {
-      pubkey: nonWritableAccount,
+      pubkey: accounts.nonWritableAccount,
       isWritable: false,
       isSigner: false,
     },
     {
-      pubkey: splToken.TOKEN_PROGRAM_ID,
+      pubkey: accounts.tokenProgram ?? splToken.TOKEN_PROGRAM_ID,
       isWritable: false,
       isSigner: false,
     },
     {
-      pubkey: web3.SYSVAR_RENT_PUBKEY,
+      pubkey: accounts.rent ?? web3.SYSVAR_RENT_PUBKEY,
       isWritable: false,
       isSigner: false,
     },
   ];
 
   const ix = new web3.TransactionInstruction({
-    programId: new web3.PublicKey('MyProgram1111111111111111111111111111111111'),
+    programId,
     keys,
     data,
   });
