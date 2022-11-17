@@ -55,7 +55,12 @@
       "name": "AccountThingy",
       "type": {
         "kind": "struct",
-        "fields": []
+        "fields": [
+          {
+            "name": "thing",
+            "type": "u8"
+          }
+        ]
       }
     }
   ],
@@ -83,7 +88,7 @@
   "metadata": {
     "origin": "shank",
     "address": "MyProgram1111111111111111111111111111111111",
-    "binaryVersion": "0.0.2",
-    "libVersion": "0.0.2"
+    "binaryVersion": "0.0.10",
+    "libVersion": "0.0.10"
   }
 }

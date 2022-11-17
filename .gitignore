@@ -19,6 +19,9 @@ yarn-error.log*
 .idea
 .anchor
 
+packages/sdk/docs/
+.amman
+
 .pnp.*
 .yarn/*
 !.yarn/patches

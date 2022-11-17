@@ -5,8 +5,8 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as web3 from '@solana/web3.js';
 import * as beet from '@metaplex-foundation/beet';
+import * as web3 from '@solana/web3.js';
 import * as beetSolana from '@metaplex-foundation/beet-solana';
 
 /**
@@ -14,7 +14,9 @@ import * as beetSolana from '@metaplex-foundation/beet-solana';
  * @category Accounts
  * @category generated
  */
-export type AccountThingyArgs = {};
+export type AccountThingyArgs = {
+  thing: number;
+};
 /**
  * Holds the data for the {@link AccountThingy} Account and provides de/serialization
  * functionality for that data
@@ -23,13 +25,13 @@ export type AccountThingyArgs = {};
  * @category generated
  */
 export class AccountThingy implements AccountThingyArgs {
-  private constructor() {}
+  private constructor(readonly thing: number) {}
 
   /**
    * Creates a {@link AccountThingy} instance from the provided args.
    */
   static fromArgs(args: AccountThingyArgs) {
-    return new AccountThingy();
+    return new AccountThingy(args.thing);
   }
 
   /**
@@ -52,8 +54,9 @@ export class AccountThingy implements AccountThingyArgs {
   static async fromAccountAddress(
     connection: web3.Connection,
     address: web3.PublicKey,
+    commitmentOrConfig?: web3.Commitment | web3.GetAccountInfoConfig,
   ): Promise<AccountThingy> {
-    const accountInfo = await connection.getAccountInfo(address);
+    const accountInfo = await connection.getAccountInfo(address, commitmentOrConfig);
     if (accountInfo == null) {
       throw new Error(`Unable to find AccountThingy account at ${address}`);
     }
@@ -122,7 +125,9 @@ export class AccountThingy implements AccountThingyArgs {
    * and can be used to convert to JSON and/or logging
    */
   pretty() {
-    return {};
+    return {
+      thing: this.thing,
+    };
   }
 }
 
@@ -130,8 +135,8 @@ export class AccountThingy implements AccountThingyArgs {
  * @category Accounts
  * @category generated
  */
-export const accountThingyBeet = new beet.BeetStruct<AccountThingy, {}>(
-  [],
+export const accountThingyBeet = new beet.BeetStruct<AccountThingy, AccountThingyArgs>(
+  [['thing', beet.u8]],
   AccountThingy.fromArgs,
   'AccountThingy',
 );

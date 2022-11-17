@@ -8,8 +8,7 @@
   "private": true,
   "scripts": {
     "build:rust": "(cd program; cargo build-bpf)",
-    "build:sdk": "yarn workspace my-program-name build",
-    "build:docs": "yarn workspace my-program-name build:docs",
+p    "build:docs": "yarn workspace my-program-name build:docs",
     "build": "yarn build:rust && yarn solita && yarn fix:format && yarn build:sdk && yarn build:docs",
     "update-sol-deps": "./scripts/update-solana-dependencies.sh",
     "rename": "./scripts/rename.sh",
@@ -21,14 +20,14 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@metaplex-foundation/amman": "^0.10.0",
-    "@metaplex-foundation/solita": "^0.12.2",
-    "@typescript-eslint/eslint-plugin": "^5.30.7",
-    "@typescript-eslint/parser": "^5.30.7",
-    "esbuild-runner": "^2.2.1",
-    "eslint": "^8.20.0",
+    "@metaplex-foundation/amman": "^0.12.1",
+    "@metaplex-foundation/solita": "^0.19.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "esbuild-runner": "^2.2.2",
+    "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.6.2"
+    "prettier": "^2.7.1"
   }
 }
