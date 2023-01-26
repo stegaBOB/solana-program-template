@@ -29,6 +29,9 @@ jobs:
         with:
           toolchain: ${{ env.RUST_TOOLCHAIN }}
 
+      # Build program to create target folder.
+      - uses: ./.github/actions/build-program
+
       # Restore Cache from previous build/test
       - uses: actions/cache@v2
         with:
