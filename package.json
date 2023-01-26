@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "build:rust": "(cd program; cargo build-bpf)",
-p    "build:docs": "yarn workspace my-program-name build:docs",
+    "build:docs": "yarn workspace my-program-name build:docs",
     "build": "yarn build:rust && yarn solita && yarn fix:format && yarn build:sdk && yarn build:docs",
     "update-sol-deps": "./scripts/update-solana-dependencies.sh",
     "rename": "./scripts/rename.sh",
