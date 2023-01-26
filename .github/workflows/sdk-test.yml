@@ -15,5 +15,5 @@ jobs:
       - uses: ./.github/actions/yarn-install-and-verify
         with: 
           cache_id: sdk
-          working_dir: ./js
+          working_dir: ./packages/sdk
           skip_test: true
