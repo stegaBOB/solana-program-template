@@ -68,7 +68,7 @@ function replace() {
     shift
     local arr=("$@")
     for file in "${arr[@]}"; do
-      sed -i "" "s/$old/$new/g" "${file}"
+      sed -i "s/$old/$new/g" "${file}"
     done
     echo "Replaced all $old's with $new!"
   fi
