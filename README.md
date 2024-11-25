@@ -1,3 +1,6 @@
+> [!Warning]
+> This Repo is no longer maintained! For an up-to-date (and much more versatile) template, try https://github.com/solana-program/create-solana-program.
+
 # The Best Solana Program Template 
 ## Includes Shank/Solita SDK generation, Amman support, scripts, .github configuration, and more!
 
